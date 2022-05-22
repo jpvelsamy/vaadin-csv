@@ -33,7 +33,7 @@ public class MainLayout extends AppLayout {
 	}
 
 	private void createDrawer() {
-		RouterLink catalogLink = new RouterLink("Catalogue", SingleCatalogueItemView.class);
+		RouterLink catalogLink = new RouterLink("Catalogue", ImportCsvFirstStepView.class);
 		addToDrawer(new VerticalLayout(  catalogLink));
 	}
 }
