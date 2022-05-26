@@ -13,7 +13,7 @@ import com.vaadin.flow.component.orderedlayout.FlexLayout;
  */
 public class CsvImportRootLayout {
 
-	private final FlexLayout importRootLayout;
+	private final FlexLayout holdingLayout;
 	private final FlexLayout resetButtonLayout;
 	private final ImportActionSummaryLayout actionSummaryLayout;
 	
@@ -23,22 +23,22 @@ public class CsvImportRootLayout {
 	 */
 	public CsvImportRootLayout()
 	{
-		importRootLayout = ImportCsvFirstStepView.getFlexVerticalLayout(true);
-		importRootLayout .setWidth("unset");
+		holdingLayout = ImportCsvFirstStepView.getFlexVerticalLayout(true);
+		holdingLayout .setWidth("unset");
 		Button resetButton = new Button("Reset All");
 		resetButtonLayout = new FlexLayout(resetButton);
-		//importRootLayout.expand(resetButton);
+		//holdingLayout.expand(resetButton);
 		resetButtonLayout.setJustifyContentMode(JustifyContentMode.END);
 		
 		
 		actionSummaryLayout = new ImportActionSummaryLayout();
 		FlexLayout importActionAndSummaryLayout = actionSummaryLayout.getLayout();
-		importRootLayout.add(resetButtonLayout, importActionAndSummaryLayout);
+		holdingLayout.add(resetButtonLayout, importActionAndSummaryLayout);
 	}
 	
 	public FlexLayout getRoot()
 	{
-		return this.importRootLayout;
+		return this.holdingLayout;
 	}
 	
 }

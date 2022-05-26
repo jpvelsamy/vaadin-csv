@@ -4,78 +4,84 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.vaadin.componentfactory.NoScrollGrid;
+
+import com.aj.reusuables.ResourceSummary;
 import com.aj.view.table.Table;
-import com.aj.view.table.TableBody;
 import com.aj.view.table.TableHead;
-import com.aj.view.table.TableHeaderCell;
-import com.aj.view.table.TableRow;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.grid.Grid.Column;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.data.provider.InMemoryDataProvider;
+import com.vaadin.flow.data.provider.ListDataProvider;
 
 public class ImportFileSummaryContainer {
 
-	private final FlexLayout container;
-	private final Table summaryContentTable;
+	private final FlexLayout resultContainer;
+	private final NoScrollGrid<ResourceSummary> summaryTable = new NoScrollGrid<ResourceSummary>();
 	private final AtomicInteger counter = new AtomicInteger(1);
-	private final Map<String, FileSummary> fileMap = new LinkedHashMap<String, FileSummary>();
-	private final TableBody body;
-
+	private final Map<String, ResourceSummary> fileMap = new LinkedHashMap<String, ResourceSummary>();
+	private final InMemoryDataProvider<ResourceSummary> dataProvider = new ListDataProvider<>(fileMap.values());
+	
 	/**
 	 * S.No, File Name, File size, Initial check, Action
 	 */
-	public ImportFileSummaryContainer() {
-		this.container = new FlexLayout();
-		this.summaryContentTable = new Table();
-		final TableHead head = summaryContentTable.getHead();
-		final TableRow headerRow = head.addRow();
-		final TableHeaderCell serialNo = headerRow.addHeaderCell();
-		serialNo.setText("S No");
-		final TableHeaderCell fileName = headerRow.addHeaderCell();
-		fileName.setText("Name");
-		final TableHeaderCell fileSize = headerRow.addHeaderCell();
-		fileSize.setText("Size");
-		final TableHeaderCell rowAndColCount = headerRow.addHeaderCell();
-		rowAndColCount.setText("Col/Row");
-		final TableHeaderCell initialCheck = headerRow.addHeaderCell();
-		initialCheck.setText("Healthy");
-		final TableHeaderCell status = headerRow.addHeaderCell();
-		status.setText("Status");
-		this.container.add(this.summaryContentTable);
-		this.body = this.summaryContentTable.getBody();
+	public ImportFileSummaryContainer() 
+	{
+		this.resultContainer = new FlexLayout();
+		
+		Column<ResourceSummary> fileName = summaryTable.addColumn(ResourceSummary::getFileName).setHeader("File name")
+				.setAutoWidth(true);
+		Column<ResourceSummary> fileSize = summaryTable.addColumn(ResourceSummary::getFileSize).setHeader("File size")
+				.setAutoWidth(true);
+		Column<ResourceSummary> healthStatus = summaryTable.addColumn(ResourceSummary::getInitialCheck)
+				.setHeader("Health status").setAutoWidth(true);
+		Column<ResourceSummary> rowCount = summaryTable.addColumn(ResourceSummary::getRowCount).setHeader("Rows")
+				.setAutoWidth(true);
+		Column<ResourceSummary> colCount = summaryTable.addColumn(ResourceSummary::getRowCount).setHeader("Columns")
+				.setAutoWidth(true);
+		Column<ResourceSummary> actionColumn = summaryTable.addComponentColumn(fileSummary -> createActionLayout(fileSummary))
+				.setAutoWidth(true);
+
+		summaryTable.setDataProvider(dataProvider);
+		
+	
+		this.resultContainer.add(this.summaryTable);
+
 	}
 
-	public void addFileInfo(FileSummary fileSummary) {
-		this.fileMap.put(fileSummary.getFileName(), fileSummary);
+	private HorizontalLayout createActionLayout(ResourceSummary fileSummary) 
+	{
 		final Button processButton = new Button("Process");
 		final Button deleteButton = new Button("Delete");
 		final HorizontalLayout actionLayout = new HorizontalLayout(processButton, deleteButton);
-		
-		final TableRow fileRow = body.addRow();
-		int currentValue = counter.incrementAndGet();
-		fileRow.addCells(Integer.toString(currentValue));
-		fileRow.addCells(fileSummary.getFileName());
-		fileRow.addCells(fileSummary.getFileSize());
-		fileRow.addCells(fileSummary.getHealthStatus());
-		fileRow.addCells(actionLayout);
 		processButton.addClickListener(event -> {
 			// Do the processing and change the status
 			processButton.setEnabled(false);
 			processButton.setText("PROCESSED");
 		});
-		deleteButton.addClickListener(event->{
-			this.body.removeRows(fileRow);
+		deleteButton.addClickListener(event -> {
+			fileMap.remove(fileSummary.getFileName());
+			this.dataProvider.refreshAll();
 		});
-
+		return actionLayout;
 	}
 
-	public void reset() {
-		this.body.removeAllRows();
-	}
-	
-	public FlexLayout getLayout()
+	public void addFileInfo(ResourceSummary fileSummary) 
 	{
-		return this.container;
+		this.fileMap.put(fileSummary.getFileName(), fileSummary);
+		this.dataProvider.refreshAll();
+	}
+
+	public void reset() 
+	{
+		
+	}
+
+	public FlexLayout getLayout() 
+	{
+		return this.resultContainer;
 	}
 
 }

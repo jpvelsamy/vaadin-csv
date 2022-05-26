@@ -1,11 +1,11 @@
-package com.aj.view;
+package com.aj.reusuables;
 
 import java.io.Serializable;
 
 /**
  *  S.No, File Name, File size, Initial check, Action
  */
-public class FileSummary implements Serializable 
+public class ResourceSummary implements Serializable 
 {
 
 	private static final long serialVersionUID = 6307344374667183708L;
@@ -18,7 +18,10 @@ public class FileSummary implements Serializable
 	private Boolean initialCheck;
 	private Integer columnCount;
 	private Integer rowCount;
-	private String status="new";//other 
+	private String status="new";//other
+	private String cloudUrl;
+	private String mimeType;
+	
 	
 	public String getFileName() {
 		return fileName;
