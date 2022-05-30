@@ -1,0 +1,72 @@
+:host([theme~="file-button"]:not([theme~="tertiary"]):not([theme~="primary"]):not([theme~="error"]):not([theme~="success"])) {
+    color: white;
+}
+
+:host([theme~="arrow-button"]:not([theme~="tertiary"]):not([theme~="primary"]):not([theme~="error"]):not([theme~="success"])) {
+    color: white;
+}
+
+:host([theme~="camera-button"]) {
+    background: #3AE8B6;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    width: 54px;
+    height: 54px;
+}
+
+:host([theme~="file-button"]) {
+    background: #3AE8B6 0% 0% no-repeat padding-box;
+    box-shadow: 3px 3px 12px #00000029;
+    border-radius: 100px;
+    color: white;
+    cursor: pointer;
+    /*top: 592px;
+    left: 107px;*/
+    width: 230px;
+    height: 54px;
+    font-size: 16px;
+}
+
+:host([theme~="asset-button"]) {
+    background: white 0% 0% no-repeat padding-box;
+    box-shadow: 3px 3px 12px #00000029;
+    border-radius: 100px;
+    color: #3AE8B6;
+    cursor: pointer;
+    width: 200px;
+    height: 54px;
+}
+
+:host([theme~="arrow-button"]) {
+    background: #3AE8B6;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    width: 54px;
+    height: 54px;
+    margin-left: 15px;
+}
+
+:host([theme~="registration-button"]) {
+    background: #3AE8B6 0% 0% no-repeat padding-box;
+    box-shadow: 3px 3px 12px #00000029;
+    border-radius: 100px;
+    color: white;
+    cursor: pointer;
+    width: 330px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+:host(#forgotPasswordButton) {
+    cursor: pointer;
+}
+
+:host([part="vaadin-login-submit"]) {
+    cursor: pointer;
+}

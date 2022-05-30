@@ -1,0 +1,12 @@
+:host([theme~="asset-date-picker"]) [part="input-field"] {
+    height: 50px;
+    border: 1px solid #00000078;
+    background: white;
+    border-radius: 5px;
+}
+
+:host([theme~="asset-date-picker-desktop"]) [part="input-field"] {
+    border: 1px solid #00000078;
+    background: white;
+    border-radius: 5px;
+}

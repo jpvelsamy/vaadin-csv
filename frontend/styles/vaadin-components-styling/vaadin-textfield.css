@@ -1,0 +1,94 @@
+:host([theme~="fileName-label"]) [part="input-field"]::after {
+    border-style: none;
+    border-width: 0px;
+    border-color: white;
+}
+
+:host([theme~="fileName-label"]) [part='input-field'] {
+    color: #000000DE;
+    background: white 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    height: 3rem;
+    border: 1px solid #00000078;
+}
+
+:host([theme~="search-field"]) [part='input-field'] {
+
+    background: #EFF5F9;
+    font-size: 15px;
+    border-bottom: 1px solid #006AF5;
+    cursor: auto !important;
+}
+
+:host([theme~="search-field"]) [part='input-field']::after {
+
+}
+
+:host([theme~="search-field"]) .vaadin-text-field-container {
+    margin-right: 25px;
+}
+
+:host([theme~="registration-textfield"]) {
+    background: white;
+    margin-bottom: 0.5rem;
+    width: 19rem;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #00000099;
+
+}
+
+
+:host([theme~="registration-textfield"]) [part='input-field'] {
+    border-radius: 0px;
+    background-color: white;
+    font-size: 16px;
+    color: #000000DE;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: none;
+}
+
+:host([theme~="registration-textfield"]) [focus-ring] [part='input-field'] {
+    box-shadow: none;
+}
+
+:host([theme~="filesize-textbox"]) [part='input-field'] {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    height: 40px;
+    border: 1px solid #00000078;
+    box-shadow: none;
+
+}
+
+:host([theme~="registration-textfield-error"]) {
+    background: #F0E1DD;
+    margin-bottom: 0.5rem;
+    width: 19rem;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #00000099;
+    content: "Read this -";
+
+}
+
+:host([theme~="registration-textfield-error"]) [part='input-field'] {
+    border-radius: 0px;
+    background-color: #F0E1DD;
+    font-size: 16px;
+    color: #000000DE;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: none;
+
+
+}
+
+:host([theme~="registration-textfield-error"]) [focus-ring] [part='input-field'] {
+    box-shadow: none;
+}

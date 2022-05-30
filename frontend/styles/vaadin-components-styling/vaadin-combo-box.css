@@ -1,0 +1,41 @@
+
+:host([theme~='combobox'][hidden]) {
+    font-size: 14px;
+}
+
+:host([theme~="combobox"]) [part~="input-field"] {
+    border-radius: 25px;
+}
+
+:host(#overlay) {
+    border-radius: 25px;
+}
+
+
+:host(#vaadin-combo-box-item-0) {
+    font-size: 14px;
+}
+
+:host(#vaadin-combo-box-item-1) {
+    font-size: 14px;
+}
+
+:host(#vaadin-combo-box-item-2) {
+    font-size: 14px;
+}
+
+:host(#vaadin-combo-box-item-3) {
+    font-size: 14px;
+}
+
+:host(#vaadin-combo-box-item-4) {
+    font-size: 14px;
+}
+
+:host(#vaadin-combo-box-item-5) {
+    font-size: 14px;
+}
+
+:host(#vaadin-combo-box-item-6) {
+    font-size: 14px;
+}

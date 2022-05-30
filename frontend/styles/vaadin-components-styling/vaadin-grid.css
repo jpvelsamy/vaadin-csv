@@ -1,0 +1,12 @@
+:host([theme~='asset-details-grid']) [part='row']:first-child [part~='header-cell'] {
+    background: #EFF5F9;
+}
+
+:host([theme~='asset-details-grid']) [part~="header-cell"] ::slotted(vaadin-grid-cell-content) {
+    font-size: 14px !important;
+    color: #001D6E !important;
+}
+
+:host([theme~='asset-details-grid']) [part~="cell"] ::slotted(vaadin-grid-cell-content) {
+    font-size: 12px;
+}

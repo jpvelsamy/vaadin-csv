@@ -1,0 +1,33 @@
+:host([theme~="filter-tab"][selected]) {
+    background: white;
+}
+
+:host([theme~="filter-tab"]) {
+    height: 60px;
+    font-weight: 400;
+    color: #00000099;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+:host([theme~="filter-tab"][active]:not([selected])) {
+    color: #000000DE;
+}
+
+:host([theme~="asset-detail"][selected]) {
+    color: var(--lumo-primary-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+:host([theme~="asset-detail"]) {
+    height: 60px;
+    font-weight: 400;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+:host([theme~="asset-detail"][active]:not([selected])) {
+    color: #000000DE;
+}

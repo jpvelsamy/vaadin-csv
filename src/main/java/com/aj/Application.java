@@ -6,6 +6,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.server.PWA;
+import com.vaadin.flow.theme.Theme;
+import com.vaadin.flow.theme.lumo.Lumo;
 
 /**
  * The entry point of the Spring Boot application.
@@ -17,7 +19,7 @@ import com.vaadin.flow.server.PWA;
 
 @PWA(name = "Csv upload Demo App", shortName = "Csv")
 @SpringBootApplication(scanBasePackageClasses = { })
-
+@Theme("icecream")
 public class Application extends SpringBootServletInitializer implements AppShellConfigurator {
 
 	

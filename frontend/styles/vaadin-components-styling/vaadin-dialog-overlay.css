@@ -1,0 +1,44 @@
+:host([theme~="slider"]) [part='overlay'] {
+    max-height: none;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    top: 13%;
+    border-radius: 35px 35px 0px 0px;
+    background: #EFF5F9;
+}
+
+:host([theme~="slider"]) {
+    left: 0px;
+    right: 0px;
+}
+
+:host([opening]),
+:host([closing]) {
+    animation-duration: 1s;
+}
+
+:host([opening]) [part="overlay"] {
+    animation-name: slide-in;
+    animation-duration: 1s;
+}
+
+:host([closing]) [part="overlay"] {
+    animation-name: slide-out;
+    animation-duration: 1s;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes slide-out {
+    100% {
+        transform: translateY(100%);
+    }
+}
+:host([theme~='mobile-pdf-view']) [part='content']{
+    padding : 10px;
+}

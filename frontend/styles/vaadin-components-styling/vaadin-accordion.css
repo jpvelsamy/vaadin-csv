@@ -1,0 +1,29 @@
+:host([theme~='reverse']) [part='summary'] {
+    font-size: 14px;
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+}
+
+:host(:not([disabled])) [part='summary']:hover, :host(:not([disabled])) [part='summary']:hover [part='toggle'] {
+    color: #09009B;
+}
+
+:host([theme~='reverse']) [part='toggle']::before {
+    color: black;
+}
+
+/*:host([theme~='sizepanel'][opened]) [part='content']
+{
+padding-top:40px;
+}
+
+:host([theme~='papercoutnpanel'][opened]) [part='content']
+{
+padding-top:40px;
+}
+:host([theme~='accuracypanel'][opened]) [part='content']
+{
+padding-top:40px;
+}*/
+
+

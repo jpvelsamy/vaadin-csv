@@ -1,0 +1,38 @@
+:host {
+    font-family: 'Poppins', sans-serif;
+}
+
+:host(.registration-checkbox) {
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #FFFFFFDE;
+    line-height: 23px;
+}
+
+:host([has-label]) ::slotted(label) {
+    font-size: 13px;
+}
+
+:host(.registration-checkbox) [part="checkbox"] {
+    border: 1px solid;
+}
+
+:host(.registration-checkbox[checked]) [part='checkbox'] {
+    background-color: #3AE8B6;
+}
+
+:host(.upload-checkbox[checked]) [part='checkbox'] {
+    background-color: #3AE8B6;
+}
+
+:host([checked]) [part='checkbox'] {
+    background-color: #3AE8B6;
+}
+
+:host([has-label]) .vaadin-checkbox-container {
+    align-items: flex-start;
+    display: flex;
+}
+
+
