@@ -29,7 +29,7 @@ public class ImportFileSummaryContainer {
 	 */
 	public ImportFileSummaryContainer() 
 	{
-		this.resultContainer = new FlexLayout();
+		this.resultContainer = ImportCsvFirstStepView.getFlexVerticalLayout(false);
 		
 		Column<ResourceSummary> fileName = summaryTable.addColumn(ResourceSummary::getFileName).setHeader("File name")
 				.setAutoWidth(true);
@@ -45,7 +45,8 @@ public class ImportFileSummaryContainer {
 				.setAutoWidth(true);
 
 		summaryTable.setDataProvider(dataProvider);
-		
+		this.summaryTable.setWidthFull();
+		this.summaryTable.setHeightFull();
 	
 		this.resultContainer.add(this.summaryTable);
 

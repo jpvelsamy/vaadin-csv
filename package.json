@@ -9,6 +9,7 @@
     "@polymer/iron-resizable-behavior": "3.0.1",
     "@polymer/polymer": "3.4.1",
     "@vaadin-component-factory/vcf-anchor-nav": "1.2.13",
+    "@vaadin-component-factory/vcf-popup": "2.0.0",
     "@vaadin/accordion": "23.0.3",
     "@vaadin/app-layout": "23.0.3",
     "@vaadin/avatar": "23.0.3",
@@ -155,6 +156,7 @@
       "@polymer/iron-resizable-behavior": "3.0.1",
       "@polymer/polymer": "3.4.1",
       "@vaadin-component-factory/vcf-anchor-nav": "1.2.13",
+      "@vaadin-component-factory/vcf-popup": "2.0.0",
       "@vaadin/accordion": "23.0.3",
       "@vaadin/app-layout": "23.0.3",
       "@vaadin/avatar": "23.0.3",
@@ -287,7 +289,7 @@
       "workbox-precaching": "6.5.0",
       "workbox-webpack-plugin": "6.5.0"
     },
-    "hash": "82e368745e948beb46c14e963f122c53b4ca90ee24f61ed551f16fa89a7fbcb7"
+    "hash": "8bbdb7f8aafc093c182d1cf7d2e6635584c58e49070065cdb4c1b906d0e19092"
   },
   "overrides": {
     "@vaadin/bundles": "$@vaadin/bundles",
@@ -406,6 +408,7 @@
     "chokidar": "$chokidar",
     "@vaadin-component-factory/vcf-anchor-nav": "$@vaadin-component-factory/vcf-anchor-nav",
     "@xpertsea/paper-slider": "$@xpertsea/paper-slider",
-    "date-fns": "$date-fns"
+    "date-fns": "$date-fns",
+    "@vaadin-component-factory/vcf-popup": "$@vaadin-component-factory/vcf-popup"
   }
 }

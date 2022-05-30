@@ -1,6 +1,7 @@
 package com.aj.view;
 
 import java.util.Collection;
+import java.util.LinkedHashSet;
 
 import com.aj.reusuables.ResourceSummary;
 import com.vaadin.flow.component.combobox.ComboBox;
@@ -12,7 +13,7 @@ public class ImportResponseLayout {
 	private final ComboBox<ResourceSummary> fileList; 
 	private final ImportGridContainer gridContainer;
 	
-	public ImportResponseLayout(Collection<ResourceSummary> resourceList)
+	public ImportResponseLayout(LinkedHashSet<ResourceSummary> resourceList)
 	{
 		this.holdingLayout  =  ImportCsvFirstStepView.getFlexVerticalLayout(true);
 		this.fileList = new ComboBox<>();

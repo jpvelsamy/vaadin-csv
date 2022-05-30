@@ -16,7 +16,7 @@ import com.vaadin.flow.router.Route;
 public class ImportCsvFirstStepView extends Div {
 
 	private static final long serialVersionUID = -4212394140208152018L;
-	public static final String CSV_UPLOAD_STEP_1_ROUTE = "upload-csv";
+	public static final String CSV_UPLOAD_STEP_1_ROUTE = "";
 	public static final String CSV_UPLOAD_STEP_1_TITLE = "Upload leads by csv";
 	private CsvImportRootLayout rootLayout;
 	

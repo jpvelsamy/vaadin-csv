@@ -4,6 +4,8 @@ import com.aj.reusuables.ImportAuditSummary;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
+import com.vaadin.flow.component.orderedlayout.FlexLayout.ContentAlignment;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
 
 public class ProcessedResultsContainer {
 
@@ -11,14 +13,15 @@ public class ProcessedResultsContainer {
 	private final H2 goodBatch = new H2("Good batch");
 	private final H2 badBatch = new H2("Bad batch");
 	private final H2 uglyBatch = new H2("Ugly batch");	
-	private final Span goodBatchValue = new Span("0");
-	private final Span badBatchValue = new Span("0");
-	private final Span uglyBatchValue = new Span("0");
+	private final Span goodBatchValue = new Span("None");
+	private final Span badBatchValue = new Span("None");
+	private final Span uglyBatchValue = new Span("None");
 	private ImportAuditSummary processSummary;
 	
 	public ProcessedResultsContainer()
 	{
-		resultsContainer = ImportCsvFirstStepView.getFlexVerticalLayout(true);
+		resultsContainer = ImportCsvFirstStepView.getFlexVerticalLayout(true);		
+		resultsContainer.setAlignContent(ContentAlignment.SPACE_AROUND);
 		goodBatchValue.getElement().getThemeList().add("badge success");
 		badBatchValue.getElement().getThemeList().add("badge");
 		uglyBatchValue.getElement().getThemeList().add("badge error");

@@ -1,5 +1,6 @@
 package com.aj.view;
 
+import com.vaadin.flow.component.Unit;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 import com.vaadin.flow.component.upload.Upload;
 
@@ -12,14 +13,20 @@ public class ImportActionSummaryLayout {
 	
 	public ImportActionSummaryLayout()
 	{
-		this.holdingLayout = ImportCsvFirstStepView.getFlexHorizontalLayout(true);
+		this.holdingLayout = ImportCsvFirstStepView.getFlexHorizontalLayout(false);
+		
 		this.fileSummaryContainer = new ImportFileSummaryContainer();
 		this.uploadContainer = new UploadContainer(this.fileSummaryContainer);
 		this.processedResultsContainer = new ProcessedResultsContainer();
-		final Upload uploadCsv = this.uploadContainer.getComponent();		
+		final Upload uploadCsv = this.uploadContainer.getComponent();
+		uploadCsv.setWidth(30, Unit.PERCENTAGE);
 		holdingLayout.add(uploadCsv);
-		holdingLayout.add(fileSummaryContainer.getLayout());
-		holdingLayout.add(this.processedResultsContainer.getLayout());
+		FlexLayout fileSummaryHoldingLayout = fileSummaryContainer.getLayout();
+		fileSummaryHoldingLayout.setWidth(50, Unit.PERCENTAGE);
+		holdingLayout.add(fileSummaryHoldingLayout);
+		FlexLayout processingResponseHoldingLayout = this.processedResultsContainer.getLayout();
+		processingResponseHoldingLayout.setWidth(30, Unit.PERCENTAGE);				
+		holdingLayout.add(processingResponseHoldingLayout);
 		
 		
 	}

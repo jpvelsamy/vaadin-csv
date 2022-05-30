@@ -1,5 +1,9 @@
 package com.aj.view;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+
+import com.aj.reusuables.ResourceSummary;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
@@ -16,6 +20,7 @@ public class CsvImportRootLayout {
 	private final FlexLayout holdingLayout;
 	private final FlexLayout resetButtonLayout;
 	private final ImportActionSummaryLayout actionSummaryLayout;
+	private final ImportResponseLayout responseGridLayout;
 	
 	/**
 	 * We have to add a Table to show the post upload result
@@ -23,17 +28,18 @@ public class CsvImportRootLayout {
 	 */
 	public CsvImportRootLayout()
 	{
-		holdingLayout = ImportCsvFirstStepView.getFlexVerticalLayout(true);
+		holdingLayout = ImportCsvFirstStepView.getFlexVerticalLayout(false);
 		holdingLayout .setWidth("unset");
 		Button resetButton = new Button("Reset All");
 		resetButtonLayout = new FlexLayout(resetButton);
-		//holdingLayout.expand(resetButton);
-		resetButtonLayout.setJustifyContentMode(JustifyContentMode.END);
-		
-		
+		resetButtonLayout.setJustifyContentMode(JustifyContentMode.END);		
 		actionSummaryLayout = new ImportActionSummaryLayout();
 		FlexLayout importActionAndSummaryLayout = actionSummaryLayout.getLayout();
-		holdingLayout.add(resetButtonLayout, importActionAndSummaryLayout);
+		holdingLayout.add(resetButtonLayout);
+		holdingLayout.add(importActionAndSummaryLayout);
+		responseGridLayout = new ImportResponseLayout(new LinkedHashSet<ResourceSummary>());
+		FlexLayout gridLayout = responseGridLayout.getLayout();
+		holdingLayout.add(gridLayout);
 	}
 	
 	public FlexLayout getRoot()

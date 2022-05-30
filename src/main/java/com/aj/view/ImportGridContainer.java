@@ -2,12 +2,15 @@ package com.aj.view;
 
 import java.util.Comparator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.aj.ToasterForAdBuddy;
 import com.vaadin.componentfactory.enhancedgrid.EnhancedColumn;
 import com.vaadin.componentfactory.enhancedgrid.EnhancedGrid;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.grid.GridSortOrder;
+import com.vaadin.flow.component.grid.GridSortOrderBuilder;
 import com.vaadin.flow.component.grid.Grid.Column;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -33,8 +36,11 @@ public class ImportGridContainer {
 	public ImportGridContainer() {
 		this.holdingContainer = ImportCsvFirstStepView.getFlexVerticalLayout(true);
 		this.createEditableGrid(goodBatchGrid);
+		goodBatchGrid.setWidthFull();
 		this.createEditableGrid(badBatchGrid);
+		badBatchGrid.setWidthFull();
 		this.createEditableGrid(uglyBatchGrid);
+		uglyBatchGrid.setWidthFull();
 		this.holdingContainer.add(goodBatchGrid);
 		this.holdingContainer.add(badBatchGrid);
 		this.holdingContainer.add(uglyBatchGrid);
@@ -72,16 +78,21 @@ public class ImportGridContainer {
 		EnhancedColumn<Lead> modifieddateColumn = (EnhancedColumn<Lead>) leadGrid.addColumn(Lead::getModifiedDate)
 				.setHeader("Modified Date");
 
-		NumberRenderer<Lead> ageRenderer = new NumberRenderer<Lead>(Lead::getSessionTime, "Age: %d");
+		//NumberRenderer<Lead> ageRenderer = new NumberRenderer<Lead>(Lead::getSessionTime, "Age: %d");
 
-		EnhancedColumn<Lead> ageColumn = leadGrid.addColumn(ageRenderer)
-				.setComparator(Comparator.comparing(Lead::getSessionTime))
-				.setHeader("Age", new com.aj.TextFilterField());
-		ageColumn.setValueProvider(p -> String.valueOf(p.getSessionTime()));
+		//EnhancedColumn<Lead> ageColumn = leadGrid.addColumn(ageRenderer)
+				//.setComparator(Comparator.comparing(Lead::getSessionTime))
+				//.setHeader("Age", new com.aj.TextFilterField());
+		//ageColumn.setValueProvider(p -> String.valueOf(p.getSessionTime()));
 
 		EnhancedColumn<Lead> createdDateColumn = leadGrid.addColumn(Lead::getCreatedDate).setHeader("Created Date");
 
 		Column<Lead> actionColumn = leadGrid.addComponentColumn(fileSummary -> createActionLayout(fileSummary));
+		
+		List<GridSortOrder<Lead>> sortByFirstName = new GridSortOrderBuilder<Lead>().thenDesc(firstNameColumn)
+				.build();
+		leadGrid.sort(sortByFirstName);
+		
 
 		leadGrid.getColumns().forEach(col -> col.setAutoWidth(true));
 	}
