@@ -18,7 +18,7 @@ public class ImportCsvFirstStepView extends Div {
 	private static final long serialVersionUID = -4212394140208152018L;
 	public static final String CSV_UPLOAD_STEP_1_ROUTE = "";
 	public static final String CSV_UPLOAD_STEP_1_TITLE = "Upload leads by csv";
-	private CsvImportRootLayout rootLayout;
+	private CsvImportFirstStepRootLayout rootLayout;
 	
 
 	public ImportCsvFirstStepView() {
@@ -26,7 +26,7 @@ public class ImportCsvFirstStepView extends Div {
 	}
 
 	private void createMainLayout() {
-		rootLayout = new CsvImportRootLayout();
+		rootLayout = new CsvImportFirstStepRootLayout();
 		FlexLayout rootFlexLayout = rootLayout.getRoot();	
 		add(rootFlexLayout);
 	}
