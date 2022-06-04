@@ -21,11 +21,11 @@ public class ImportCsvSecondAndFinalStepView  extends Div implements HasUrlParam
 	private static final long serialVersionUID = -4212394140208152018L;
 	public static final String CSV_UPLOAD_STEP_2_TITLE = "Confirm upload leads";
 	public static final String CSV_UPLOAD_STEP_2_ROUTE = "confirm-import";
-	private final SecondStepCsvUploadResultsTopLayout resultsContainer;
+	private final SecondStepCsvUploadResultsHoldingLayout resultsContainer;
 	
 	public ImportCsvSecondAndFinalStepView()
 	{
-		this.resultsContainer = new  SecondStepCsvUploadResultsTopLayout();
+		this.resultsContainer = new  SecondStepCsvUploadResultsHoldingLayout();
 		FlexLayout resultsLayout = this.resultsContainer.getLayout();
 		add(resultsLayout);
 	}
