@@ -17,7 +17,7 @@ public class SecondStepImportSummaryRowLayout {
 	private static final String VAR_LUMO_ERROR_COLOR_10PCT = "var(--lumo-error-color-10pct)";
 	private static final String VAR_LUMO_PRIMARY_COLOR_20PCT = "var(--lumo-primary-color-10pct)";
 	private final FlexLayout reportCountFirstRowContainer;
-	private final SecondStepImportActionLayout actionLayoutBuilder;
+	private final SecondStepImportDownloadLinkContainer actionLayoutBuilder;
 	
 	public SecondStepImportSummaryRowLayout()
 	{
@@ -29,7 +29,7 @@ public class SecondStepImportSummaryRowLayout {
 		createRowCircle();
 		createImportedCircle();
 		createChangedRowsCircle();
-		actionLayoutBuilder = new SecondStepImportActionLayout();
+		actionLayoutBuilder = new SecondStepImportDownloadLinkContainer();
 		createDownloadLinks();
 
 		
