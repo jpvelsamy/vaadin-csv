@@ -1,6 +1,5 @@
 package aj.view.lead.importing.firsstep;
 
-import java.util.Collection;
 import java.util.LinkedHashSet;
 
 import com.vaadin.flow.component.combobox.ComboBox;

@@ -7,8 +7,6 @@ import com.vaadin.flow.component.orderedlayout.FlexLayout.ContentAlignment;
 
 import aj.reusuables.ImportAuditSummary;
 
-import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
-
 public class ProcessedResultsContainer {
 
 	private final FlexLayout resultsContainer;

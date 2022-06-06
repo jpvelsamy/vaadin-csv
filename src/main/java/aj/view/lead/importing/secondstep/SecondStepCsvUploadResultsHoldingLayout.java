@@ -6,17 +6,16 @@ import aj.view.lead.importing.firsstep.ImportCsvFirstStepView;
 
 public class SecondStepCsvUploadResultsHoldingLayout {
 
-	private final FlexLayout holdingLayout;
-	private final FlexLayout reportCountSecondRowContainer;
+	private final FlexLayout holdingLayout;	
 	private final SecondStepImportSummaryRowLayout rowLayout;
 
 	public SecondStepCsvUploadResultsHoldingLayout() {
 		this.holdingLayout = ImportCsvFirstStepView.getFlexVerticalLayout(false);
 		this.rowLayout = new SecondStepImportSummaryRowLayout();
 		FlexLayout reportCountFirstRowContainer = this.rowLayout.getLayout();
-		this.reportCountSecondRowContainer = new SecondStepImportActionLayout().getLayout();
+		//this.reportCountSecondRowContainer = new SecondStepImportActionLayout().getLayout();
 		this.holdingLayout.add(reportCountFirstRowContainer);
-		this.holdingLayout.add(this.reportCountSecondRowContainer);
+		//this.holdingLayout.add(this.reportCountSecondRowContainer);
 	}
 	
 	public FlexLayout getLayout()
