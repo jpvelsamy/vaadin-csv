@@ -13,16 +13,18 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.data.provider.InMemoryDataProvider;
 import com.vaadin.flow.data.provider.ListDataProvider;
 
-import aj.reusuables.ResourceSummary;
+import aj.reusuables.ImportAuditLineItem;
+
+
 import aj.view.lead.importing.firsstep.ImportCsvFirstStepView;
 
 public class ImportFileSummaryContainer {
 
 	private final FlexLayout resultContainer;
-	private final NoScrollGrid<ResourceSummary> summaryTable = new NoScrollGrid<ResourceSummary>();
+	private final NoScrollGrid<ImportAuditLineItem> summaryTable = new NoScrollGrid<ImportAuditLineItem>();
 	private final AtomicInteger counter = new AtomicInteger(1);
-	private final Map<String, ResourceSummary> fileMap = new LinkedHashMap<String, ResourceSummary>();
-	private final InMemoryDataProvider<ResourceSummary> dataProvider = new ListDataProvider<>(fileMap.values());
+	private final Map<String, ImportAuditLineItem> fileMap = new LinkedHashMap<String, ImportAuditLineItem>();
+	private final InMemoryDataProvider<ImportAuditLineItem> dataProvider = new ListDataProvider<>(fileMap.values());
 	
 	/**
 	 * S.No, File Name, File size, Initial check, Action
@@ -31,17 +33,17 @@ public class ImportFileSummaryContainer {
 	{
 		this.resultContainer = ImportCsvFirstStepView.getFlexVerticalLayout(false);
 		
-		Column<ResourceSummary> fileName = summaryTable.addColumn(ResourceSummary::getFileName).setHeader("File name")
+		Column<ImportAuditLineItem> fileName = summaryTable.addColumn(ImportAuditLineItem::getFileName).setHeader("File name")
 				.setAutoWidth(true);
-		Column<ResourceSummary> fileSize = summaryTable.addColumn(ResourceSummary::getFileSize).setHeader("File size")
+		Column<ImportAuditLineItem> fileSize = summaryTable.addColumn(ImportAuditLineItem::getFileSize).setHeader("File size")
 				.setAutoWidth(true);
-		Column<ResourceSummary> healthStatus = summaryTable.addColumn(ResourceSummary::getInitialCheck)
+		Column<ImportAuditLineItem> healthStatus = summaryTable.addColumn(ImportAuditLineItem::getInitialCheck)
 				.setHeader("Health status").setAutoWidth(true);
-		Column<ResourceSummary> rowCount = summaryTable.addColumn(ResourceSummary::getRowCount).setHeader("Rows")
+		Column<ImportAuditLineItem> rowCount = summaryTable.addColumn(ImportAuditLineItem::getRowCount).setHeader("Rows")
 				.setAutoWidth(true);
-		Column<ResourceSummary> colCount = summaryTable.addColumn(ResourceSummary::getRowCount).setHeader("Columns")
+		Column<ImportAuditLineItem> colCount = summaryTable.addColumn(ImportAuditLineItem::getRowCount).setHeader("Columns")
 				.setAutoWidth(true);
-		Column<ResourceSummary> actionColumn = summaryTable.addComponentColumn(fileSummary -> createActionLayout(fileSummary))
+		Column<ImportAuditLineItem> actionColumn = summaryTable.addComponentColumn(fileSummary -> createActionLayout(fileSummary))
 				.setAutoWidth(true);
 
 		summaryTable.setDataProvider(dataProvider);
@@ -52,7 +54,7 @@ public class ImportFileSummaryContainer {
 
 	}
 
-	private HorizontalLayout createActionLayout(ResourceSummary fileSummary) 
+	private HorizontalLayout createActionLayout(ImportAuditLineItem fileSummary) 
 	{
 		final Button processButton = new Button("Process");
 		final Button deleteButton = new Button("Delete");
@@ -69,7 +71,7 @@ public class ImportFileSummaryContainer {
 		return actionLayout;
 	}
 
-	public void addFileInfo(ResourceSummary fileSummary) 
+	public void addFileInfo(ImportAuditLineItem fileSummary) 
 	{
 		this.fileMap.put(fileSummary.getFileName(), fileSummary);
 		this.dataProvider.refreshAll();

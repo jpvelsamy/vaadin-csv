@@ -11,6 +11,7 @@ public class SecondStepCsvUploadResultsHoldingLayout {
 	private final FlexLayout holdingLayout;
 	private final SecondStepImportSummaryRowLayout summaryDetailsLayout;
 	private final SecondStepImportActionLayout actionLayout;
+	private final SecondStepFileSummaryContainer container;
 	private final FlexLayout goBackLayout;
 	private final Button goBack;
 
@@ -28,6 +29,11 @@ public class SecondStepCsvUploadResultsHoldingLayout {
 
 		this.actionLayout = new SecondStepImportActionLayout();
 		this.holdingLayout.add(this.actionLayout.getLayout());
+		
+		this.container = new SecondStepFileSummaryContainer();
+		FlexLayout fileSummaryLayout = this.container.getLayout();
+		this.holdingLayout.add(fileSummaryLayout);
+		
 
 	}
 

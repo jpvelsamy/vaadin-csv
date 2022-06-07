@@ -4,8 +4,9 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MultiFileBuffer;
 
+import aj.DalUtil;
 import aj.csv.CsvUploadEngine;
-import aj.reusuables.ResourceSummary;
+import aj.reusuables.ImportAuditLineItem;
 import aj.view.lead.importing.ImportFileSummaryContainer;
 
 public class UploadContainer {
@@ -26,11 +27,13 @@ public class UploadContainer {
 			final String fileName = event.getFileName();
 			final String length = Long.toString(event.getContentLength());
 			boolean checkHealth = CsvUploadEngine.checkHealth(fileName);
-			final ResourceSummary summary = new ResourceSummary();
+			String longId = DalUtil.createLongId();
+			String businessObjectType = "lead.csv";
+			final ImportAuditLineItem summary = new ImportAuditLineItem(longId, businessObjectType);
 			summary.setFileName(fileName);
 			summary.setFileSize(length);
 			summary.setInitialCheck(checkHealth);
-			summary.setStatus(ResourceSummary.STATUS_NEW);
+			summary.setStatus(ImportAuditLineItem.STATUS_NEW);
 			fileSummaryContainer.addFileInfo(summary);
 
 			// InputStream inputStream = bufferCsv.getInputStream(fileName);

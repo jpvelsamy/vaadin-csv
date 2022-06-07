@@ -7,11 +7,10 @@ import org.vaadin.miki.superfields.buttons.MultiClickButton;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
-
-import aj.reusuables.ResourceSummary;
-import aj.view.lead.importing.secondstep.ImportCsvSecondAndFinalStepView;
-
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
+
+import aj.reusuables.ImportAuditLineItem;
+import aj.view.lead.importing.secondstep.ImportCsvSecondAndFinalStepView;
 
 /*
  * TODO 
@@ -45,7 +44,7 @@ public class CsvImportFirstStepRootLayout {
 		actionSummaryLayout = new ImportActionSummaryLayout();		
 		FlexLayout importActionAndSummaryLayout = actionSummaryLayout.getLayout();		
 		holdingLayout.add(importActionAndSummaryLayout);
-		responseGridLayout = new ImportResponseLayout(new LinkedHashSet<ResourceSummary>());
+		responseGridLayout = new ImportResponseLayout(new LinkedHashSet<ImportAuditLineItem>());
 		
 		FlexLayout gridLayout = responseGridLayout.getLayout();
 		holdingLayout.add(gridLayout);

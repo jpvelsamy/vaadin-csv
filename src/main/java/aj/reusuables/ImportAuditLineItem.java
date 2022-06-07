@@ -6,23 +6,36 @@ import aj.DalUtil;
 
 public class ImportAuditLineItem {
 
+	public static final String STATUS_NEW="new";
+	public static final String STATUS_PROCESSED="processed";
+	public static final String STATUS_FAILED="failed";
+	
 	private final String id;
-	private final String businessObject;
-	private final ResourceSummary sourceFile;
+	private final String businessObject;	
 	private Integer inboundRowCount;
 	private Integer errorRowCount;
 	private Integer overrideRowCount;
 	private Integer correctRowCount;
 	private Date importedDate;
+	
+	
+	private String fileName;
+	private String fileSize;
+	private Boolean initialCheck;
+	private Integer columnCount;
+	private Integer rowCount;
+	private String status="new";//other
+	private String cloudUrl;
+	private String mimeType;
 
-	public ImportAuditLineItem(String id, String businessObject, ResourceSummary sourceFile) {
+	public ImportAuditLineItem(String id, String businessObject) {
 		super();
 		if (id != null)
 			this.id = id;
 		else
 			this.id = DalUtil.createLongId();
 		this.businessObject = businessObject;
-		this.sourceFile = sourceFile;
+		
 	}
 
 	public String getId() {
@@ -73,8 +86,51 @@ public class ImportAuditLineItem {
 		return businessObject;
 	}
 
-	public ResourceSummary getSourceFile() {
-		return sourceFile;
+	
+	public String getFileName() {
+		return fileName;
 	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public String getFileSize() {
+		return fileSize;
+	}
+	public void setFileSize(String fileSize) {
+		this.fileSize = fileSize;
+	}
+	public Boolean getInitialCheck() {
+		return initialCheck;
+	}
+	public void setInitialCheck(Boolean initialCheck) {
+		this.initialCheck = initialCheck;
+	}
+	public int getColumnCount() {
+		return columnCount;
+	}
+	public void setColumnCount(int columnCount) {
+		this.columnCount = columnCount;
+	}
+	public int getRowCount() {
+		return rowCount;
+	}
+	public void setRowCount(int rowCount) {
+		this.rowCount = rowCount;
+	}
+	
+	public String getHealthStatus()
+	{
+		if(initialCheck)
+			return "Healthy";
+		else
+			return "Noisy";
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 
 }
