@@ -15,14 +15,17 @@ public class SecondStepCsvUploadResultsHoldingLayout {
 	private final SecondStepImportSummaryRowLayout summaryDetailsLayout;
 	private final SecondStepImportActionLayout actionLayout;
 	private final SecondStepFileSummaryGridContainer fileSummaryContainer;
+	private final ImportedLeadGridContainer importedLeadContainer;
 	private final FlexLayout goBackLayout;
 	private final Button goBack;
+	private final FlexLayout saveLayout;
+	private final Button finishImport;
 
 	public SecondStepCsvUploadResultsHoldingLayout() {
 		this.holdingLayout = ImportCsvFirstStepView.getFlexVerticalLayout(false);
 		this.holdingLayout.setAlignContent(ContentAlignment.STRETCH);
 		this.holdingLayout.setJustifyContentMode(JustifyContentMode.EVENLY);
-		this.holdingLayout.setAlignItems(Alignment.START);
+		//this.holdingLayout.setAlignItems(Alignment.START);
 		this.summaryDetailsLayout = new SecondStepImportSummaryRowLayout();
 		FlexLayout reportCountFirstRowContainer = this.summaryDetailsLayout.getLayout();
 
@@ -39,6 +42,17 @@ public class SecondStepCsvUploadResultsHoldingLayout {
 		this.fileSummaryContainer = new SecondStepFileSummaryGridContainer();
 		FlexLayout fileSummaryLayout = this.fileSummaryContainer.getLayout();		
 		this.holdingLayout.add(fileSummaryLayout);
+		
+		this.importedLeadContainer = new ImportedLeadGridContainer();
+		FlexLayout leadGridLayout = this.importedLeadContainer.getLayout();
+		this.holdingLayout.add(leadGridLayout);
+		
+		this.finishImport = new Button("Finish import");
+		this.saveLayout = new FlexLayout();
+		this.saveLayout.setJustifyContentMode(JustifyContentMode.END);
+		this.saveLayout.add(this.finishImport);
+		this.holdingLayout.add(saveLayout);
+		this.holdingLayout.setAlignSelf(Alignment.END, this.saveLayout);
 
 	}
 

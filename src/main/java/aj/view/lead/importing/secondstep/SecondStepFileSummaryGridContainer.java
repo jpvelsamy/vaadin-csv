@@ -13,6 +13,7 @@ public class SecondStepFileSummaryGridContainer {
 	
 	private final FlexLayout holdingContainer;	 
 	private final ImportFileSummaryContainer fileSummaryContainer;
+	private final ImportAuditContainer auditContainer;
 	
 	
 	public SecondStepFileSummaryGridContainer()
@@ -26,11 +27,21 @@ public class SecondStepFileSummaryGridContainer {
 		gridLayout.setSizeFull();
 		gridLayout.setWidth(70, Unit.PERCENTAGE);
 		
+		this.auditContainer = new ImportAuditContainer();
+		FlexLayout auditLayout = this.auditContainer.getLayout();
+		auditLayout.setWidth(28, Unit.PERCENTAGE);
+		
+		
+		
+		this.holdingContainer.add(gridLayout);
+		this.holdingContainer.add(auditLayout);
+		
+		
 	}
 	
 	public FlexLayout getLayout()
 	{
-		return this.fileSummaryContainer.getLayout();
+		return this.holdingContainer;
 	}
 
 }
