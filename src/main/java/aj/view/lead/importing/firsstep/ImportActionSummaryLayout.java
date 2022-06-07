@@ -17,7 +17,7 @@ public class ImportActionSummaryLayout {
 	{
 		this.holdingLayout = ImportCsvFirstStepView.getFlexHorizontalLayout(false);
 		
-		this.fileSummaryContainer = new ImportFileSummaryContainer();
+		this.fileSummaryContainer = new ImportFileSummaryContainer(false);
 		this.uploadContainer = new UploadContainer(this.fileSummaryContainer);
 		this.processedResultsContainer = new ProcessedResultsContainer();
 		final Upload uploadCsv = this.uploadContainer.getComponent();

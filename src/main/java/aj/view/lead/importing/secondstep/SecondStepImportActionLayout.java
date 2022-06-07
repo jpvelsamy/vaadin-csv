@@ -16,8 +16,8 @@ public class SecondStepImportActionLayout {
 		this.actionLayout.setJustifyContentMode(JustifyContentMode.EVENLY);
 		
 		
-		ImportActionContainer all = new ImportActionContainer("Import all", ImportActionDivContainer.IMPORT_MODE_ALL);
-		ImportActionContainer selected = new ImportActionContainer("Import clean", ImportActionDivContainer.IMPORT_MODE_CLEAN);
+		ImportActionContainer all = new ImportActionContainer("Import all", ImportActionContainer.IMPORT_MODE_ALL);
+		ImportActionContainer selected = new ImportActionContainer("Import clean", ImportActionContainer.IMPORT_MODE_CLEAN);
 		
 		VerticalLayout holdingDivAll = all.getLayout();
 		VerticalLayout holdingDivClean =  selected.getLayout();
