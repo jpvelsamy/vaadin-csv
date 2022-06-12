@@ -6,6 +6,8 @@ import org.vaadin.miki.superfields.buttons.ButtonState;
 import org.vaadin.miki.superfields.buttons.MultiClickButton;
 
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 
@@ -44,7 +46,15 @@ public class CsvImportFirstStepRootLayout {
 		actionSummaryLayout = new ImportActionSummaryLayout();		
 		FlexLayout importActionAndSummaryLayout = actionSummaryLayout.getLayout();		
 		holdingLayout.add(importActionAndSummaryLayout);
-		responseGridLayout = new ImportResponseLayout(new LinkedHashSet<ImportAuditLineItem>());
+		
+		responseGridLayout = new ImportResponseLayout();
+		
+		LinkedHashSet<ImportAuditLineItem> resourceList = new LinkedHashSet<ImportAuditLineItem>();
+		ComboBox<ImportAuditLineItem> fileList = new ComboBox<>();
+		fileList.setItems(resourceList);
+		fileList.setItemLabelGenerator(ImportAuditLineItem::getFileName);
+		holdingLayout.add(fileList);
+		holdingLayout.setAlignSelf(Alignment.START, fileList);
 		
 		FlexLayout gridLayout = responseGridLayout.getLayout();
 		holdingLayout.add(gridLayout);

@@ -10,17 +10,14 @@ import aj.reusuables.ImportAuditLineItem;
 public class ImportResponseLayout {
 	
 	private final FlexLayout holdingLayout;
-	private final ComboBox<ImportAuditLineItem> fileList; 
+	//private final ComboBox<ImportAuditLineItem> fileList; 
 	private final ImportGridContainer gridContainer;
 	
-	public ImportResponseLayout(LinkedHashSet<ImportAuditLineItem> resourceList)
+	public ImportResponseLayout()
 	{
 		this.holdingLayout  =  ImportCsvFirstStepView.getFlexVerticalLayout(true);
-		this.fileList = new ComboBox<>();
-		this.fileList.setItems(resourceList);
-		this.fileList.setItemLabelGenerator(ImportAuditLineItem::getFileName);
 		this.gridContainer = new ImportGridContainer();
-		this.holdingLayout.add(this.fileList);
+		//this.holdingLayout.add(this.fileList);
 		this.holdingLayout.add(this.gridContainer.getLayout());		
 	}
 	

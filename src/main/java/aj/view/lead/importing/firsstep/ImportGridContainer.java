@@ -1,6 +1,5 @@
 package aj.view.lead.importing.firsstep;
 
-import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -8,14 +7,14 @@ import java.util.Set;
 import com.vaadin.componentfactory.enhancedgrid.EnhancedColumn;
 import com.vaadin.componentfactory.enhancedgrid.EnhancedGrid;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.grid.Grid.Column;
 import com.vaadin.flow.component.grid.GridSortOrder;
 import com.vaadin.flow.component.grid.GridSortOrderBuilder;
-import com.vaadin.flow.component.grid.Grid.Column;
+import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.data.provider.InMemoryDataProvider;
 import com.vaadin.flow.data.provider.ListDataProvider;
-import com.vaadin.flow.data.renderer.NumberRenderer;
 
 import aj.ToasterForAdBuddy;
 import aj.csi.pim.lead.Lead;
@@ -35,14 +34,23 @@ public class ImportGridContainer {
 
 	public ImportGridContainer() {
 		this.holdingContainer = ImportCsvFirstStepView.getFlexVerticalLayout(true);
+		H3 goodBatch = new H3("Good batch");	
 		this.createEditableGrid(goodBatchGrid);
 		goodBatchGrid.setWidthFull();
+		
+		H3 badBatch = new H3("Bad batch");		
 		this.createEditableGrid(badBatchGrid);
 		badBatchGrid.setWidthFull();
+		
+		H3 uglyBatch = new H3("Ugly batch");		
 		this.createEditableGrid(uglyBatchGrid);
 		uglyBatchGrid.setWidthFull();
+		
+		this.holdingContainer.add(goodBatch);
 		this.holdingContainer.add(goodBatchGrid);
+		this.holdingContainer.add(badBatch);		
 		this.holdingContainer.add(badBatchGrid);
+		this.holdingContainer.add(uglyBatch);
 		this.holdingContainer.add(uglyBatchGrid);
 	}
 

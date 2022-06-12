@@ -38,7 +38,7 @@ public class ImportFileSummaryContainer {
 		this.isReportingOnly = isReportingOnly;
 		this.resultContainer = ImportCsvFirstStepView.getFlexVerticalLayout(false);
 		this.resultContainer.setAlignContent(ContentAlignment.STRETCH);
-		this.resultContainer.setJustifyContentMode(JustifyContentMode.EVENLY);
+		this.resultContainer.setJustifyContentMode(JustifyContentMode.START);
 		this.resultContainer.setAlignItems(Alignment.START);
 
 		Column<ImportAuditLineItem> fileName = summaryTable.addColumn(ImportAuditLineItem::getFileName)
