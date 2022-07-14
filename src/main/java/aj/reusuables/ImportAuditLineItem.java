@@ -22,8 +22,8 @@ public class ImportAuditLineItem {
 	private String fileName;
 	private String fileSize;
 	private Boolean initialCheck;
-	private Integer columnCount;
-	private Integer rowCount;
+	private Integer columnCount=0;
+	private Integer rowCount=0;
 	private String status="new";//other
 	private String cloudUrl;
 	private String mimeType;

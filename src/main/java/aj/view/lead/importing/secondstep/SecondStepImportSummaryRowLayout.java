@@ -89,9 +89,9 @@ public class SecondStepImportSummaryRowLayout {
 		totalFilesDiv.getStyle().set("display", "table-cell");
 		totalFilesDiv.getStyle().set("text-align", "center");
 		totalFilesDiv.getStyle().set("background-color", color);
-		totalFilesDiv.getStyle().set("width", "150px");
-		totalFilesDiv.getStyle().set("height", "150px");
-		totalFilesDiv.getStyle().set("border-radius", "50%");
+		totalFilesDiv.getStyle().set("width", "250px");
+		totalFilesDiv.getStyle().set("height", "70px");
+		//totalFilesDiv.getStyle().set("border-radius", "50%");
 		return totalFilesDiv;
 	}
 
