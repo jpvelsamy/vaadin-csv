@@ -84,16 +84,7 @@ public class SecondStepImportSummaryRowLayout {
 		this.reportCountFirstRowContainer.add(extDiv);
 	}
 
-	private Div createCircle(String color) {
-		Div totalFilesDiv = new Div();
-		totalFilesDiv.getStyle().set("display", "table-cell");
-		totalFilesDiv.getStyle().set("text-align", "center");
-		totalFilesDiv.getStyle().set("background-color", color);
-		totalFilesDiv.getStyle().set("width", "250px");
-		totalFilesDiv.getStyle().set("height", "70px");
-		//totalFilesDiv.getStyle().set("border-radius", "50%");
-		return totalFilesDiv;
-	}
+	
 
 	public FlexLayout getLayout() {
 		return this.reportCountFirstRowContainer;
@@ -109,10 +100,25 @@ public class SecondStepImportSummaryRowLayout {
 		extDiv.add(containerDiv);
 		return extDiv;
 	}
-
+	
 	private Div createExternalDiv() {
 		Div ext3Div = new Div();
 		ext3Div.getStyle().set("display", "table");
 		return ext3Div;
 	}
+	
+	private Div createCircle(String color) {
+		Div totalFilesDiv = new Div();
+		totalFilesDiv.getStyle().set("display", "table-cell");
+		totalFilesDiv.getStyle().set("text-align", "center");
+		totalFilesDiv.getStyle().set("background-color", color);
+		totalFilesDiv.getStyle().set("width", "250px");
+		totalFilesDiv.getStyle().set("height", "70px");
+		//totalFilesDiv.getStyle().set("border-radius", "50%");
+		return totalFilesDiv;
+	}
+
+	
+	
+	
 }
